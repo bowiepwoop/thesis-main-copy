@@ -64,7 +64,7 @@ const AttendanceTeacherCard = () => {
             <tr className="border-b">
               <th className="px-4 py-2 text-left">Teacher ID</th>
               <th className="px-4 py-2 text-left">Name</th>
-              <th className="px-4 py-2 text-left">Time</th>
+              <th className="px-4 py-2 text-left">{isViewingTimeIn ? 'Time-In' : 'Time-Out'}</th>
             </tr>
           </thead>
           <tbody>
