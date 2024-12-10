@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar';
 import UserCard from './components/UserCard';
 import { AdminContext } from './context/AdminContext';
 import { StudentContext } from './context/StudentContext';
+import { TeacherContext } from './context/TeacherContext';
 import AddAdministrator from './pages/Admin/AddAdministrator';
 import AddStudent from './pages/Admin/AddStudent';
 import AddTeacher from './pages/Admin/AddTeacher';
@@ -41,7 +42,7 @@ import UtilityDashboard from './pages/Utility/UtilityDashboard';
 import UtilityProfile from './pages/Utility/UtilityProfile';
 
 const App = () => {
-  const { dToken } = useContext(StudentContext);
+  const { dToken } = useContext(TeacherContext);
   const { aToken } = useContext(AdminContext);
 
   console.log("Tokens:", { dToken, aToken});

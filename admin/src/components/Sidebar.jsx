@@ -26,27 +26,23 @@ const Sidebar = () => {
           <p className='hidden md:block'>All Users</p>
         </NavLink>
         <NavLink to={'/rfid-scan'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#F2F3FF] border-r-4 border-customRed' : ''}`}>
-          <img className='min-w-5' src={assets.people_icon} alt='' />
+          <img className='min-w-5' src={assets.list_icon} alt='' />
           <p className='hidden md:block'>Scan RFID</p>
         </NavLink>
         <NavLink to={'/attendance'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#F2F3FF] border-r-4 border-customRed' : ''}`}>
-          <img className='min-w-5' src={assets.people_icon} alt='' />
-          <p className='hidden md:block'>Attendance</p>
-        </NavLink>
-      </ul>}
-
-      {dToken && <ul className='text-[#515151] mt-5'>
-        <NavLink to={'/student-dashboard'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#d4b5b5] border-r-4 border-primary' : ''}`}>
-          <img className='min-w-5' src={assets.home_icon} alt='' />
-          <p className='hidden md:block'>Dashboard</p>
-        </NavLink>
-        <NavLink to={'/student-appointments'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#d4b5b5] border-r-4 border-primary' : ''}`}>
           <img className='min-w-5' src={assets.appointment_icon} alt='' />
           <p className='hidden md:block'>Attendance</p>
         </NavLink>
-        <NavLink to={'/student-profile'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#d4b5b5] border-r-4 border-primary' : ''}`}>
-          <img className='min-w-5' src={assets.people_icon} alt='' />
-          <p className='hidden md:block'>Profile</p>
+      </ul>}
+      {/*teacher dashboard*/}
+      {dToken && <ul className='text-[#515151] mt-5'>
+        <NavLink to={'/teacher-dashboard'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#F2F3FF] border-r-4 border-customRed' : ''}`}>
+          <img className='min-w-5' src={assets.home_icon} alt='' />
+          <p className='hidden md:block'>Dashboard</p>
+        </NavLink>
+        <NavLink to={'/teacher-appointments'} className={({ isActive }) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-[#F2F3FF] border-r-4 border-customRed' : ''}`}>
+          <img className='min-w-5' src={assets.appointment_icon} alt='' />
+          <p className='hidden md:block'>Attendance</p>
         </NavLink>
       </ul>}
     </div>

@@ -54,7 +54,7 @@ const UtilitysList = () => {
 
   return (
     <div className="m-5 max-h-[90vh] overflow-y-scroll">
-      <h1 className="text-lg font-medium">All Utilitys</h1>
+      <h1 className="text-lg font-medium">All Utilities</h1>
 
       {/* Table Layout */}
       <table className="min-w-full table-auto border-collapse mt-5">
