@@ -42,12 +42,12 @@ import UtilityDashboard from './pages/Utility/UtilityDashboard';
 import UtilityProfile from './pages/Utility/UtilityProfile';
 
 const App = () => {
-  const { dToken } = useContext(TeacherContext);
   const { aToken } = useContext(AdminContext);
+  const { dToken } = useContext(TeacherContext);
 
-  console.log("Tokens:", { dToken, aToken});
+  console.log("Tokens:", { aToken, dToken});
 
-  return dToken || aToken ? (
+  return aToken || dToken ? (
     <div className='bg-[#F8F9FD]'>
       <ToastContainer />
       <Navbar />

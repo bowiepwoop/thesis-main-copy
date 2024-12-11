@@ -3,7 +3,6 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { toast } from 'react-toastify';
 import { AdminContext } from '../context/AdminContext';
-import { StudentContext } from '../context/StudentContext';
 import { TeacherContext } from '../context/TeacherContext'; 
 
 const Login = () => {
@@ -14,7 +13,6 @@ const Login = () => {
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  const { setDToken } = useContext(StudentContext); // Make sure this is correct for student token
   const { setAToken } = useContext(AdminContext); 
   const { setDToken: setTeacherToken } = useContext(TeacherContext); // Correct the name here
 
