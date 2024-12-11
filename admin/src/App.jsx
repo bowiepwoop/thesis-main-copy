@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import UserCard from './components/UserCard';
 import { AdminContext } from './context/AdminContext';
-import { StudentContext } from './context/StudentContext';
 import { TeacherContext } from './context/TeacherContext';
 import AddAdministrator from './pages/Admin/AddAdministrator';
 import AddStudent from './pages/Admin/AddStudent';
@@ -56,6 +55,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Login/>} />
           <Route path='/admin-dashboard' element={<Dashboard />} />
+          <Route path='/teacher-dashboard' element={<TeacherDashboard />} />
           <Route path='/rfid-scan' element={<RFID_Scan />} />
           <Route path='/add-student' element={<AddStudent />} />
           <Route path='/add-administrator' element={<AddAdministrator />} />
@@ -74,7 +74,6 @@ const App = () => {
           <Route path='/attendance-utility' element={<AttendanceUtilityCard />} />
           <Route path='/student-dashboard' element={<StudentDashboard />} />
           <Route path='/administrator-dashboard' element={<AdministratorDashboard />} />
-          <Route path='/teacher-dashboard' element={<TeacherDashboard />} />
           <Route path='/utility-dashboard' element={<UtilityDashboard />} />
           <Route path='/administrator-appointments' element={<AdministratorAppointments />} />
           <Route path='/teacher-appointments' element={<TeacherAppointments />} />

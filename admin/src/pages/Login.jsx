@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { toast } from 'react-toastify';
 import { AdminContext } from '../context/AdminContext';
@@ -13,8 +13,8 @@ const Login = () => {
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  const { setAToken } = useContext(AdminContext); 
-  const { setDToken: setTeacherToken } = useContext(TeacherContext); // Correct the name here
+  const { aToken, setAToken } = useContext(AdminContext); 
+  const { dToken, setDToken } = useContext(TeacherContext); 
 
   const navigate = useNavigate();
 
@@ -27,11 +27,20 @@ const Login = () => {
     },
     Teacher: {
       endpoint: '/api/teacher/login',
-      tokenSetter: setTeacherToken, // Use the correct setter for teacher token
-      localStorageKey: 'dToken', // Ensure the key matches the one used in TeacherContext
+      tokenSetter: setDToken,
+      localStorageKey: 'dToken',
       redirectTo: '/teacher-dashboard',
     },
   };
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (aToken) {
+      navigate('/admin-dashboard');
+    } else if (dToken) {
+      navigate('/teacher-dashboard');
+    }
+  }, [aToken, dToken, navigate]);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -46,7 +55,7 @@ const Login = () => {
         tokenSetter(data.token); // Set the token in the appropriate context
         localStorage.setItem(localStorageKey, data.token);
         toast.success(`${state} logged in successfully!`);
-        navigate(redirectTo);
+        navigate(redirectTo); // Navigate to the correct dashboard
       } else {
         toast.error(data.message || 'Invalid credentials.');
       }
